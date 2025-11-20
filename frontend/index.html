@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer - Riassumi i tuoi PDF con AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#6366f1"/>
+                    <path d="M12 14H28M12 20H28M12 26H22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h1>PDF Summarizer</h1>
+            </div>
+            <p class="tagline">Carica un PDF e ottieni un riassunto intelligente in pochi secondi</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-box" id="uploadBox">
+                    <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                    <h2>Carica il tuo PDF</h2>
+                    <p>Trascina qui il file oppure clicca per selezionarlo</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <button class="btn-primary" id="uploadBtn">Seleziona PDF</button>
+                    <span class="file-info">Dimensione massima: 10 MB</span>
+                </div>
+            </div>
+
+            <div class="loading-section hidden" id="loadingSection">
+                <div class="spinner"></div>
+                <p class="loading-text">Elaborazione in corso...</p>
+                <p class="loading-subtext">Stiamo analizzando il tuo documento</p>
+            </div>
+
+            <div class="results-section hidden" id="resultsSection">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>Riassunto Generato</h3>
+                        <button class="btn-secondary" id="newUploadBtn">Nuovo PDF</button>
+                    </div>
+                    <div class="file-name" id="fileName"></div>
+                    <div class="summary-box" id="summaryBox"></div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Lunghezza testo originale:</span>
+                            <span class="stat-value" id="textLength">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Testo Estratto (anteprima)</h3>
+                    <div class="extracted-text" id="extractedText"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by OpenAI GPT • Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
